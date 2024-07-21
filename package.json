@@ -1,7 +1,7 @@
 {
-  "name": "framework-arduinopico",
-  "version": "1.30903.0",
-  "description": "Arduino Wiring-based Framework (RPi Pico RP2040)",
+  "name": "rp2040-ddl",
+  "version": "0.1",
+  "description": "Arduino Wiring-based Framework for 3d Printer boards based on RP2040",
   "keywords": [
     "framework",
     "arduino",
@@ -9,9 +9,9 @@
     "Raspberry Pi",
     "RP2040"
   ],
-  "homepage": "https://arduino-pico.readthedocs.io/en/latest/",
+  "homepage": "To be created",
   "repository": {
     "type": "git",
-    "url": "https://github.com/earlephilhower/arduino-pico"
+    "url": "https://github.com/amken3d/rp2040-ddl"
   }
 }

@@ -2,9 +2,13 @@
 [![Release](https://img.shields.io/github/v/release/earlephilhower/arduino-pico?style=plastic)](https://github.com/earlephilhower/arduino-pico/releases)
 [![Gitter](https://img.shields.io/gitter/room/earlephilhower/arduino-pico?style=plastic)](https://gitter.im/arduino-pico/community)
 
-Raspberry Pi Pico Arduino core, for all RP2040 boards
+Arduino Wiring-based Framework for 3d Printer boards based on RP2040"
 
 This is a port of the RP2040 (Raspberry Pi Pico processor) to the Arduino ecosystem. It uses the bare Raspberry Pi Pico SDK and a custom GCC 12.3/Newlib 4.0 toolchain.
+
+Based on the arduino-pico core by ephilhower. A lot of the libraries not related to 3d printer functionalilty were removed.
+
+TODO : Will be updated. 
 
 # Documentation
 See https://arduino-pico.readthedocs.io/en/latest/ along with the examples for more detailed usage information.
@@ -14,101 +18,19 @@ Read the [Contributing Guide](https://github.com/earlephilhower/arduino-pico/blo
 
 # Supported Boards
 * Raspberry Pi Pico
-* Raspberry Pi Pico W
-* 0xCB Helios
-* Adafruit Feather RP2040
-* Adafruit Feather RP2040 SCORPIO
-* Adafruit ItsyBitsy RP2040
-* Adafruit KB2040
-* Adafruit Macropad RP2040
-* Adafruit Metro RP2040
-* Adafruit QTPy RP2040
-* Adafruit STEMMA Friend RP2040
-* Adafruit Trinkey RP2040 QT
 * Amken Bunny 
 * Amken Revelop 
 * Amken Revelop Plus 
 * Amken Revelop eS
-* Arduino Nano RP2040 Connect
-* ArtronShop RP2 Nano
-* Breadstick Raspberry
-* BridgeTek IDM2040-7A
-* BridgeTek IDM2040-43A
-* Cytron Maker Pi RP2040
-* Cytron Maker Nano RP2040
-* Cytron Maker Uno RP2040
-* DatanoiseTV PicoADK+
-* Degz Suibo RP2040
-* DeRuiLab FlyBoard2040 Core
-* DFRobot Beetle RP2040
-* ElectronicCats Hunter Cat NFC
-* EVN Alpha
-* ExtremeElectronics RC2040
-* GroundStudio Marble Pico
-* Invector Labs Challenger RP2040 WiFi
-* Invector Labs Challenger RP2040 WiFi/BLE
-* Invector Labs Challenger RP2040 WiFi6/BLE
-* Invector Labs Challenger NB RP2040 WiFi
-* Invector Labs Challenger RP2040 LTE
-* Invector Labs Challenger RP2040 LoRa
-* Invector Labs Challenger RP2040 SubGHz
-* Invector Labs Challenger RP2040 SD/RTC
-* Invector Labs Challenger RP2040 UWB
-* Invector Labs RPICO32
-* Melopero Cookie RP2040
-* Melopero Shake RP2040
-* METE HOCA Akana R1
-* Neko Systems BL2040 Mini
-* Olimex RP2040-Pico30
-* Newsan Archi
-* nullbits Bit-C PRO
-* Pimoroni PGA2040
-* Pimoroni Plasma2040
-* Pimoroni Tiny2040
-* RAKwireless RAK11300
-* Redscorp RP2040-Eins
-* Redscorp RP2040-ProMini
-* Sea-Picro
-* Seeed Indicator RP2040
-* Seeed XIAO RP2040
-* Silicognition RP2040-Shim
-* Solder Party RP2040 Stamp
-* SparkFun MicroMod RP2040
-* SparkFun ProMicro RP2040
-* SparkFun Thing Plus RP2040
-* uPesy RP2040 DevKit
-* VCC-GND YD-RP2040
-* Viyalab Mizu RP2040
-* Waveshare RP2040 Zero
-* Waveshare RP2040 One
-* Waveshare RP2040 Plus
-* Waveshare RP2040 LCD 0.96
-* Waveshare RP2040 LCD 1.28
-* Waveshare RP2040 Matrix
-* Waveshare RP2040 PiZero
-* WIZnet W5100S-EVB-Pico
-* WIZnet W5500-EVB-Pico
-* WIZnet WizFi360-EVB-Pico
-* Generic (configurable flash, I/O pins)
 
 # Features
 * Adafruit TinyUSB Arduino (USB mouse, keyboard, flash drive, generic HID, CDC Serial, MIDI, WebUSB, others)
-* Bluetooth on the PicoW (Classic and BLE) with Keyboard, Mouse, Joystick, and Virtual Serial
-* Bluetooth Classic and BLE HID master mode (connect to BT keyboard, mouse, or joystick)
-* Generic Arduino USB Serial, Keyboard, Joystick, and Mouse emulation
-* WiFi (Pico W, ESP32-based ESPHost, Atmel WINC1500)
-* Ethernet (Wired W5500, W5100, ENC28J60)
-* HTTP client and server (WebServer)
-* SSL/TLS/HTTPS
 * Over-the-Air (OTA) upgrades
 * Filesystems (LittleFS and SD/SDFS)
 * Multicore support (setup1() and loop1())
 * FreeRTOS SMP support
 * Overclocking and underclocking from the menus
 * digitalWrite/Read, shiftIn/Out, tone, analogWrite(PWM)/Read, temperature
-* Analog stereo audio in using DMA and the built-in ADC
-* Analog stereo audio out using PWM hardware
-* Bluetooth A2DP audio source (output) and sink (input) on the PicoW
 * USB drive mode for data loggers (SingleFileDrive, FatFSUSB)
 * Peripherals:  SPI master/slave, Wire(I2C) master/slave, dual UART, emulated EEPROM, I2S audio input/output, Servo
 * printf (i.e. debug) output over USB serial
