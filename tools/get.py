@@ -120,7 +120,7 @@ def identify_platform():
 
 def main():
     print('Platform: {0}'.format(identify_platform()))
-    tools_to_download = load_tools_list('../package/package_pico_index.template.json', identify_platform())
+    tools_to_download = load_tools_list('../package/package_rp2040_lite_index.template.json', identify_platform())
     mkdir_p(dist_dir)
     for tool in tools_to_download:
         get_tool(tool)

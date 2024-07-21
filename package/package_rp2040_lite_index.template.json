@@ -1,12 +1,12 @@
 {
    "packages": [
       {
-         "name": "rp2040",
-         "maintainer": "Earle F. Philhower, III",
-         "websiteURL": "https://github.com/earlephilhower/arduino-pico",
-         "email": "earlephilhower@yahoo.com",
+         "name": "rp2040_lite",
+         "maintainer": "Hkeni",
+         "websiteURL": "https://github.com/amken3d/arduino-rp2040",
+         "email": "info@amken.us",
          "help": {
-            "online": "https://arduino-pico.readthedocs.io/en/latest/"
+            "online": "https://arduino-rp2040.readthedocs.io/en/latest/"
          },
          "platforms": [
             {

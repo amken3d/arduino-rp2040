@@ -92,44 +92,44 @@ def BuildUSBStack(name):
     print('%s.menu.usbstack.tinyusb_host.build.usbstack_flags=-DUSE_TINYUSB -DUSE_TINYUSB_HOST "-I{runtime.platform.path}/libraries/Adafruit_TinyUSB_Arduino/src/arduino"' % (name))
     print("%s.menu.usbstack.nousb=No USB" % (name))
     print('%s.menu.usbstack.nousb.build.usbstack_flags="-DNO_USB -DDISABLE_USB_SERIAL -I{runtime.platform.path}/tools/libpico"' % (name))
-
-def BuildCountry(name):
-    countries = [ "Worldwide", "Australia", "Austria", "Belgium", "Brazil", "Canada", "Chile", "China", "Colombia", "Czech Republic",
-                  "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hong Kong", "Hungary", "Iceland", "India", "Israel",
-                  "Italy", "Japan", "Kenya", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malaysia", "Malta", "Mexico",
-                  "Netherlands", "New Zealand", "Nigeria", "Norway", "Peru", "Philippines", "Poland", "Portugal", "Singapore", "Slovakia",
-                  "Slovenia", "South Africa", "South Korea", "Spain", "Sweden", "Switzerland", "Taiwan", "Thailand", "Turkey", "UK", "USA"]
-    for c in countries:
-        sane = c.replace(" ", "_").upper()
-        print("%s.menu.wificountry.%s=%s" % (name, sane.lower(), c))
-        print("%s.menu.wificountry.%s.build.wificc=-DWIFICC=CYW43_COUNTRY_%s" % (name, sane.lower(), sane))
-
-def BuildIPBTStack(name):
-    print("%s.menu.ipbtstack.ipv4only=IPv4 Only" % (name))
-    print('%s.menu.ipbtstack.ipv4only.build.libpicow=libpicow-noipv6-nobtc-noble.a' % (name))
-    print('%s.menu.ipbtstack.ipv4only.build.libpicowdefs=-DLWIP_IPV6=0 -DLWIP_IPV4=1' % (name))
-    print("%s.menu.ipbtstack.ipv4ipv6=IPv4 + IPv6" % (name))
-    print('%s.menu.ipbtstack.ipv4ipv6.build.libpicow=libpicow-ipv6-nobtc-noble.a' % (name))
-    print('%s.menu.ipbtstack.ipv4ipv6.build.libpicowdefs=-DLWIP_IPV6=1 -DLWIP_IPV4=1' % (name))
-    print("%s.menu.ipbtstack.ipv4btcble=IPv4 + Bluetooth" % (name))
-    print('%s.menu.ipbtstack.ipv4btcble.build.libpicow=libpicow-noipv6-btc-ble.a' % (name))
-    print('%s.menu.ipbtstack.ipv4btcble.build.libpicowdefs=-DLWIP_IPV6=0 -DLWIP_IPV4=1 -DENABLE_CLASSIC=1 -DENABLE_BLE=1' % (name))
-    print("%s.menu.ipbtstack.ipv4ipv6btcble=IPv4 + IPv6 + Bluetooth" % (name))
-    print('%s.menu.ipbtstack.ipv4ipv6btcble.build.libpicow=libpicow-ipv6-btc-ble.a' % (name))
-    print('%s.menu.ipbtstack.ipv4ipv6btcble.build.libpicowdefs=-DLWIP_IPV6=1 -DLWIP_IPV4=1 -DENABLE_CLASSIC=1 -DENABLE_BLE=1' % (name))
-    print("%s.menu.ipbtstack.ipv4onlybig=IPv4 Only - 32K" % (name))
-    print('%s.menu.ipbtstack.ipv4onlybig.build.libpicow=libpicow-noipv6-nobtc-noble-big.a' % (name))
-    print('%s.menu.ipbtstack.ipv4onlybig.build.libpicowdefs=-DLWIP_IPV6=0 -DLWIP_IPV4=1 -D__LWIP_MEMMULT=2' % (name))
-    print("%s.menu.ipbtstack.ipv4ipv6big=IPv4 + IPv6 - 32K" % (name))
-    print('%s.menu.ipbtstack.ipv4ipv6big.build.libpicow=libpicow-ipv6-nobtc-noble-big.a' % (name))
-    print('%s.menu.ipbtstack.ipv4ipv6big.build.libpicowdefs=-DLWIP_IPV6=1 -DLWIP_IPV4=1 -D__LWIP_MEMMULT=2' % (name))
-    print("%s.menu.ipbtstack.ipv4btcblebig=IPv4 + Bluetooth - 32K" % (name))
-    print('%s.menu.ipbtstack.ipv4btcblebig.build.libpicow=libpicow-noipv6-btc-ble-big.a' % (name))
-    print('%s.menu.ipbtstack.ipv4btcblebig.build.libpicowdefs=-DLWIP_IPV6=0 -DLWIP_IPV4=1 -DENABLE_CLASSIC=1 -DENABLE_BLE=1 -D__LWIP_MEMMULT=2' % (name))
-    print("%s.menu.ipbtstack.ipv4ipv6btcblebig=IPv4 + IPv6 + Bluetooth - 32K" % (name))
-    print('%s.menu.ipbtstack.ipv4ipv6btcblebig.build.libpicow=libpicow-ipv6-btc-ble-big.a' % (name))
-    print('%s.menu.ipbtstack.ipv4ipv6btcblebig.build.libpicowdefs=-DLWIP_IPV6=1 -DLWIP_IPV4=1 -DENABLE_CLASSIC=1 -DENABLE_BLE=1 -D__LWIP_MEMMULT=2' % (name))
-
+#
+# def BuildCountry(name):
+#     countries = [ "Worldwide", "Australia", "Austria", "Belgium", "Brazil", "Canada", "Chile", "China", "Colombia", "Czech Republic",
+#                   "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hong Kong", "Hungary", "Iceland", "India", "Israel",
+#                   "Italy", "Japan", "Kenya", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malaysia", "Malta", "Mexico",
+#                   "Netherlands", "New Zealand", "Nigeria", "Norway", "Peru", "Philippines", "Poland", "Portugal", "Singapore", "Slovakia",
+#                   "Slovenia", "South Africa", "South Korea", "Spain", "Sweden", "Switzerland", "Taiwan", "Thailand", "Turkey", "UK", "USA"]
+#     for c in countries:
+#         sane = c.replace(" ", "_").upper()
+#         print("%s.menu.wificountry.%s=%s" % (name, sane.lower(), c))
+#         print("%s.menu.wificountry.%s.build.wificc=-DWIFICC=CYW43_COUNTRY_%s" % (name, sane.lower(), sane))
+#
+# def BuildIPBTStack(name):
+#     print("%s.menu.ipbtstack.ipv4only=IPv4 Only" % (name))
+#     print('%s.menu.ipbtstack.ipv4only.build.libpicow=libpicow-noipv6-nobtc-noble.a' % (name))
+#     print('%s.menu.ipbtstack.ipv4only.build.libpicowdefs=-DLWIP_IPV6=0 -DLWIP_IPV4=1' % (name))
+#     print("%s.menu.ipbtstack.ipv4ipv6=IPv4 + IPv6" % (name))
+#     print('%s.menu.ipbtstack.ipv4ipv6.build.libpicow=libpicow-ipv6-nobtc-noble.a' % (name))
+#     print('%s.menu.ipbtstack.ipv4ipv6.build.libpicowdefs=-DLWIP_IPV6=1 -DLWIP_IPV4=1' % (name))
+#     print("%s.menu.ipbtstack.ipv4btcble=IPv4 + Bluetooth" % (name))
+#     print('%s.menu.ipbtstack.ipv4btcble.build.libpicow=libpicow-noipv6-btc-ble.a' % (name))
+#     print('%s.menu.ipbtstack.ipv4btcble.build.libpicowdefs=-DLWIP_IPV6=0 -DLWIP_IPV4=1 -DENABLE_CLASSIC=1 -DENABLE_BLE=1' % (name))
+#     print("%s.menu.ipbtstack.ipv4ipv6btcble=IPv4 + IPv6 + Bluetooth" % (name))
+#     print('%s.menu.ipbtstack.ipv4ipv6btcble.build.libpicow=libpicow-ipv6-btc-ble.a' % (name))
+#     print('%s.menu.ipbtstack.ipv4ipv6btcble.build.libpicowdefs=-DLWIP_IPV6=1 -DLWIP_IPV4=1 -DENABLE_CLASSIC=1 -DENABLE_BLE=1' % (name))
+#     print("%s.menu.ipbtstack.ipv4onlybig=IPv4 Only - 32K" % (name))
+#     print('%s.menu.ipbtstack.ipv4onlybig.build.libpicow=libpicow-noipv6-nobtc-noble-big.a' % (name))
+#     print('%s.menu.ipbtstack.ipv4onlybig.build.libpicowdefs=-DLWIP_IPV6=0 -DLWIP_IPV4=1 -D__LWIP_MEMMULT=2' % (name))
+#     print("%s.menu.ipbtstack.ipv4ipv6big=IPv4 + IPv6 - 32K" % (name))
+#     print('%s.menu.ipbtstack.ipv4ipv6big.build.libpicow=libpicow-ipv6-nobtc-noble-big.a' % (name))
+#     print('%s.menu.ipbtstack.ipv4ipv6big.build.libpicowdefs=-DLWIP_IPV6=1 -DLWIP_IPV4=1 -D__LWIP_MEMMULT=2' % (name))
+#     print("%s.menu.ipbtstack.ipv4btcblebig=IPv4 + Bluetooth - 32K" % (name))
+#     print('%s.menu.ipbtstack.ipv4btcblebig.build.libpicow=libpicow-noipv6-btc-ble-big.a' % (name))
+#     print('%s.menu.ipbtstack.ipv4btcblebig.build.libpicowdefs=-DLWIP_IPV6=0 -DLWIP_IPV4=1 -DENABLE_CLASSIC=1 -DENABLE_BLE=1 -D__LWIP_MEMMULT=2' % (name))
+#     print("%s.menu.ipbtstack.ipv4ipv6btcblebig=IPv4 + IPv6 + Bluetooth - 32K" % (name))
+#     print('%s.menu.ipbtstack.ipv4ipv6btcblebig.build.libpicow=libpicow-ipv6-btc-ble-big.a' % (name))
+#     print('%s.menu.ipbtstack.ipv4ipv6btcblebig.build.libpicowdefs=-DLWIP_IPV6=1 -DLWIP_IPV4=1 -DENABLE_CLASSIC=1 -DENABLE_BLE=1 -D__LWIP_MEMMULT=2' % (name))
+#
 
 def BuildUploadMethodMenu(name):
     for a, b, c, d, e, f in [ ["default", "Default (UF2)", 256, "picoprobe_cmsis_dap.tcl", "uf2conv", "uf2conv-network"],
@@ -360,7 +360,7 @@ def MakeBoardJSON(name, vendor_name, product_name, vid, pid, pwr, boarddefine, f
     f.write(json)
     f.close()
 
-pkgjson = json.load(open(os.path.abspath(os.path.dirname(__file__)) + '/../package/package_pico_index.template.json'))
+pkgjson = json.load(open(os.path.abspath(os.path.dirname(__file__)) + '/../package/package_rp2040_lite_index.template.json'))
 pkgjson['packages'][0]['platforms'][0]['boards'] = []
 
 sys.stdout = open(os.path.abspath(os.path.dirname(__file__)) + "/../boards.txt", "w", newline='\n')
@@ -384,5 +384,5 @@ MakeBoard("amken_revelop_es","Amken","Revelop eS","0x2770",["0x7306"],250,"AMKEN
 MakeBoard("generic", "Generic", "RP2040", "0x2e8a", "0xf00a", 250, "GENERIC_RP2040", 16, "boot2_generic_03h_4_padded_checksum")
 
 sys.stdout.close()
-with open(os.path.abspath(os.path.dirname(__file__)) + '/../package/package_pico_index.template.json', 'w', newline='\n') as f:
+with open(os.path.abspath(os.path.dirname(__file__)) + '/../package/package_rp2040_lite_index.template.json', 'w', newline='\n') as f:
     f.write(json.dumps(pkgjson, indent=3))

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -o xtrace
 
-[ -z "${REMOTE_URL}" ] && REMOTE_URL=https://github.com/earlephilhower/arduino-pico/releases/download
+[ -z "${REMOTE_URL}" ] && REMOTE_URL=https://github.com/amken3d/arduino-rp2040/releases/download
 
 if [ ! -z "${manualversion}" ]; then
 
@@ -37,7 +37,7 @@ fi
 
 set -e
 
-package_name=rp2040-$visible_ver
+package_name=rp2040_lite-$visible_ver
 echo "Version: $visible_ver ($ver)"
 echo "Package name: $package_name"
 
@@ -80,7 +80,7 @@ rsync -a -L -K --exclude-from 'exclude.txt' $srcdir/ $outdir/
 rm exclude.txt
 
 # Get previous release name
-curl --silent https://api.github.com/repos/earlephilhower/arduino-pico/releases > releases.json
+curl --silent https://api.github.com/amken3d/arduino-rp2040/releases > releases.json
 # Previous final release (prerelease == false)
 prev_release=$(jq -r '. | map(select(.draft == false and .prerelease == false)) | sort_by(.created_at | - fromdateiso8601) | .[0].tag_name' releases.json)
 # Previous release (possibly a pre-release)
@@ -119,8 +119,8 @@ sed 's/^tools.picodebug.cmd=.*//g' | \
 sed 's/^#tools.picodebug.cmd=/tools.picodebug.cmd=/g' | \
 sed 's/^discovery.rp2040.pattern=.*//g' | \
 sed 's/^#discovery.rp2040.pattern=/discovery.rp2040.pattern=/g' | \
-sed 's/^pluggable_discovery.rp2040.pattern=.*//g' | \
-sed 's/^#pluggable_discovery.rp2040.pattern=/pluggable_discovery.rp2040.pattern=/g'  | \
+sed 's/^pluggable_discovery.rp2040-lite.pattern=.*//g' | \
+sed 's/^#pluggable_discovery.rp2040-lite.pattern=/pluggable_discovery.rp2040.pattern=/g'  | \
 sed 's/^tools.uf2conv-network.cmd=.*//g' | \
 sed 's/^#tools.uf2conv-network.cmd=/tools.uf2conv-network.cmd=/g' | \
 sed "s/version=.*/version=$ver/g" |\
@@ -139,7 +139,7 @@ size=`/bin/ls -l $package_name.zip | awk '{print $5}'`
 echo Size: $size
 echo SHA-256: $sha
 
-echo "Making package_rp2040_index.json"
+echo "Making package_rp2040_lite_index.json"
 
 jq_arg=".packages[0].platforms[0].version = \"$visible_ver\" | \
     .packages[0].platforms[0].url = \"$PKG_URL\" |\
@@ -151,14 +151,14 @@ if [ -z "$is_nightly" ]; then
         .packages[0].platforms[0].checksum = \"SHA-256:$sha\""
 fi
 
-cat $srcdir/package/package_pico_index.template.json | \
-    jq "$jq_arg" > package_rp2040_index.json
+cat $srcdir/package/package_rp2040_lite_index.template.json | \
+    jq "$jq_arg" > package_rp2040_lite_index.json
 
 # Download previous release
 echo "Downloading base package: $base_ver"
 old_json=package_rp2040_index_stable.json
-curl -L -o $old_json "https://github.com/earlephilhower/arduino-pico/releases/download/${base_ver}/package_rp2040_index.json"
-new_json=package_rp2040_index.json
+curl -L -o $old_json "https://github.com/amken3d/arduino-rp2040/releases/download/${base_ver}/package_rp2040_lite_index.json"
+new_json=package_rp2040_lite_index.json
 
 set +e
 # Merge the old and new
@@ -180,8 +180,8 @@ mv tmp $new_json
 set -e
 cat $new_json | jq empty
 
-cat $new_log > package_rp2040_index.log
-cat $new_tag > package_rp2040_index.tag
+cat $new_log > package_rp2040_lite_index.log
+cat $new_tag > package_rp2040_lite_index.tag
 rm -f $new_log $new_tag
 
 popd
