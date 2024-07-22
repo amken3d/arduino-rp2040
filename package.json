@@ -1,5 +1,5 @@
 {
-  "name": "framework-arduinorp2040",
+  "name": "framework-marlin_rp2040",
   "version": "0.0.1",
   "description": "Arduino Wiring-based Framework for 3d Printer boards based on RP2040",
   "keywords": [
