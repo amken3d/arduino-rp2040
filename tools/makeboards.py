@@ -264,9 +264,9 @@ def MakeBoard(name, vendor_name, product_name, vid, pid, pwr, boarddefine, flash
     BuildDebugPort(name)
     BuildDebugLevel(name)
     BuildUSBStack(name)
-    if name == "rpipicow":
-        BuildCountry(name)
-    BuildIPBTStack(name)
+    # if name == "rpipicow":
+    #     BuildCountry(name)
+    # BuildIPBTStack(name)
     if name == "generic":
         BuildBoot(name)
     elif name.startswith("adafruit") and "w25q080" in boot2:
@@ -290,14 +290,14 @@ def MakeBoardJSON(name, vendor_name, product_name, vid, pid, pwr, boarddefine, f
         m_extra = ''
     json = """{
   "build": {
-    "arduino": {
-      "earlephilhower": {
+    "marlin": {
+      "amken3d": {
         "boot2_source": "BOOT2.S",
         "usb_vid": "VID",
         "usb_pid": "PID"
       }
     },
-    "core": "earlephilhower",
+    "core": "amken3d",
     "cpu": "cortex-m0plus",
     "extra_flags": "-D ARDUINO_BOARDDEFINE -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=USBPWR EXTRA_INFO",
     "f_cpu": "133000000L",
