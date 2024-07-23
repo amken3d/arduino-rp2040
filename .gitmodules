@@ -1,6 +1,7 @@
 [submodule "pico-sdk"]
 	path = pico-sdk
-	url = https://github.com/raspberrypi/pico-sdk.git
+	url = https://github.com/amken3d/pico-sdk.git
+	branch = nosubModules
 	shallow = true
 [submodule "system/pyserial"]
 	path = tools/pyserial
