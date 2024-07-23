@@ -1,6 +1,6 @@
 {
   "build": {
-    "marlin": {
+    "arduino": {
       "amken3d": {
         "boot2_source": "boot2_w25q16jvxq_4_padded_checksum.S",
         "usb_vid": "0x2770",

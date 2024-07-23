@@ -33,7 +33,7 @@ else:
 # Update available RAM size
 board.update("upload.maximum_ram_size", ram_size)
 
-FRAMEWORK_DIR = platform.get_package_dir("framework-arduinorp2040")
+FRAMEWORK_DIR = platform.get_package_dir("framework-marlin-rp2040")
 assert os.path.isdir(FRAMEWORK_DIR)
 
 # read includes from this file to add them into CPPPATH later for good IDE intellisense

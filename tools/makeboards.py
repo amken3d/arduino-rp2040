@@ -290,7 +290,7 @@ def MakeBoardJSON(name, vendor_name, product_name, vid, pid, pwr, boarddefine, f
         m_extra = ''
     json = """{
   "build": {
-    "marlin": {
+    "arduino": {
       "amken3d": {
         "boot2_source": "BOOT2.S",
         "usb_vid": "VID",
