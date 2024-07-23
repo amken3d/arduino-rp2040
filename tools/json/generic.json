@@ -30,7 +30,7 @@
     "svd_path": "rp2040.svd"
   },
   "frameworks": [
-    "amken3d"
+    "arduino"
   ],
   "name": "RP2040",
   "upload": {
