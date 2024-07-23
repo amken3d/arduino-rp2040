@@ -30,7 +30,7 @@
     "svd_path": "rp2040.svd"
   },
   "frameworks": [
-    "arduino"
+    "amken3d"
   ],
   "name": "BunnyBoard",
   "upload": {

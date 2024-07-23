@@ -320,7 +320,7 @@ def MakeBoardJSON(name, vendor_name, product_name, vid, pid, pwr, boarddefine, f
     "svd_path": "rp2040.svd"
   },
   "frameworks": [
-    "arduino"
+    "amken3d"
   ],
   "name": "PRODUCTNAME",
   "upload": {
